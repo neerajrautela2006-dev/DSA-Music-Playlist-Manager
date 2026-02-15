@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DSA Music Playlist Manager — Naruto Theme</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+  const user = sessionStorage.getItem('loggedInUser');
+  if(!user){
+    window.location.href = 'login.html';
+  }
+</script>
+
+  <div class="bg"></div>
+  <div class="bg-konoha"></div>
+  <div class="grid-overlay"></div>
+
+  <header>
+    <button id="logoutBtn" class="small-btn">Logout</button>
+    <div class="brand">
+      <div class="logo" title="Konoha Mark">🍥</div>
+      <div>
+        <h1>Music Playlist Manager</h1>
+        <div class="sub">Linked List • Queue • Stack — Konoha UI</div>
+      </div>
+    </div>
+    <div class="logo" title="Kunai">🔪</div>
+  </header>
+
+  <div class="mood-selector">
+    <button class="mood-btn" data-mood="chill">🍡 Calm (Chill)</button>
+    <button class="mood-btn" data-mood="focus">🌀 Focus (Chakra)</button>
+    <button class="mood-btn" data-mood="workout">⚔️ Training (Workout)</button>
+    <button class="mood-btn" data-mood="party">🔥 Battle Hype</button>
+  </div>
+
+  <div class="container">
+    <div class="card" id="playlistCard">
+      <h2>Playlist <span class="badge" id="plCount"></span></h2>
+      <input id="fileInput" type="file" accept="audio/*" multiple aria-label="Add audio files">
+      <ul id="playlist"></ul>
+      <div class="btn-row">
+        <button class="small-btn" id="shuffleBtn">Shuffle</button>
+        <button class="small-btn" id="clearBtn">Clear</button>
+        <button class="small-btn" id="exportBtn">Export (JSON)</button>
+        <button class="small-btn" id="importBtn">Import (JSON)</button>
+      </div>
+    </div>
+
+    <div class="card" id="middleCard">
+      <h2>Now Playing</h2>
+      <div id="nowInfo">No track selected</div>
+
+      <div class="controls">
+        <button class="control-btn" id="prevBtn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 6h2v12H6V6zm2 6 10 6V6L8 12z"/></svg>
+        </button>
+
+        <button class="control-btn" id="playBtn">
+          <svg class="icon play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+          <svg class="icon pause" viewBox="0 0 24 24"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+
+        <button class="control-btn" id="nextBtn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16 6h2v12h-2V6zM6 6l10 6-10 6V6z"/></svg>
+        </button>
+
+        <button class="control-btn" id="playNextBtn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h12v2H3v-2zm0 5h8v2H3v-2zm14-3v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z"/></svg>
+        </button>
+      </div>
+
+      <audio id="audio"></audio>
+      <!-- Chakra Music Slider -->
+<div class="music-slider">
+  <span id="currentTime">0:00</span>
+  <input type="range" id="seekBar" min="0" value="0" step="1">
+  <span id="totalTime">0:00</span>
+</div>
+
+    <!-- Chakra Visualizer -->
+<div id="visualizer">
+  <canvas id="chakraCanvas"></canvas>
+</div>
+
+      <div class="stats-row">
+        <span>Plays: <span id="plays">0</span></span>
+        <span>Skips: <span id="skips">0</span></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Up Next (Queue)</h2>
+      <ul id="queue"></ul>
+      <h2>Recently Played (Stack)</h2>
+      <ul id="recent"></ul>
+    </div>
+  </div>
+
+  <div class="shinobi-layer">
+    <svg class="shinobi nin1" viewBox="0 0 64 64">
+      <path fill="rgba(255,123,0,0.25)" d="M32 2 L40 14 L34 20 L42 30 L34 62 L28 62 L22 30 L30 20 L24 14 Z"/>
+    </svg>
+    <svg class="shinobi nin2" viewBox="0 0 64 64">
+      <path fill="rgba(0,208,132,0.25)" d="M32 2 L38 10 L44 18 L40 24 L46 34 L38 62 L26 62 L18 34 L24 24 L20 18 Z"/>
+    </svg>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
