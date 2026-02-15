@@ -71,7 +71,5 @@ This project is designed to **demonstrate core DSA concepts in an applied, visua
 > ❌ No libraries  
 > ✅ Pure logic and DOM control
 
----
 
-## 📂 Project Structure
 
